@@ -1,6 +1,6 @@
 # Firefighter-Linux: The Ultimate Cyber Defense Doctrine
 
-![Firefighter Linux Banner](URL_TO_A_COOL_BANNER_IMAGE_LATER)
+![Firefighter Linux Banner](https://firefighterlinux.org/)
 
 **Firefighter-Linux** is an open-source, intelligence-driven, and proactive cybersecurity operations doctrine designed to transcend reactive defense. Built entirely on powerful open-source tools, its name is inspired by a new generation of "firefighters" who don't just extinguish digital fires—they prevent them and proactively hunt the arsonists.
 

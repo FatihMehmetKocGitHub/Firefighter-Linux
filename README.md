@@ -1,47 +1,37 @@
-# Firefighter-Linux: The Ultimate Cyber Defense Doctrine
+# Firefighter_Linux: An Open-Source Proactive Cyber Defense Doctrine
 
-![Firefighter-Linux Logo](./assets/logo.png)
+## Project Vision
+Firefighter_Linux is a proactive, intelligence-driven, and predictive cybersecurity operations doctrine built entirely with open-source tools. It's designed to go beyond reactive defense, metaphorically not just extinguishing digital "fires" but proactively hunting for the "arsonists" and preventing fires from starting in the first place.
 
-**Firefighter-Linux** is an open-source, intelligence-driven, and proactive cybersecurity operations doctrine designed to transcend reactive defense. Built entirely on powerful open-source tools, its name is inspired by a new generation of "firefighters" who don't just extinguish digital fires—they prevent them and proactively hunt the arsonists.
+## Core Doctrine
+The entire operation is built on three core principles:
+* **Zero Trust:** No entity or traffic, internal or external, is trusted by default. Everything must be authenticated, authorized, and inspected.
+* **Zero Tolerance:** No detected anomaly or policy violation is ignored. Every event requires either automated intervention or direct analyst response based on its severity.
+* **Continuous Hunt:** We operate under the assumption of compromise. Instead of passively waiting for alarms, we are perpetually hunting for adversaries within our systems.
 
-Our doctrine is simple, yet absolute: **Zero Trust. Zero Tolerance. Continuous Hunt.**
+## Guiding Philosophy: GitOps as the Single Source of Truth
+Every piece of configuration, setup, documentation, and code in the Firefighter_Linux infrastructure has a single official version: the one stored in a central Git repository. This principle brings auditability, versioning, and repeatability to the entire infrastructure.
+* `Firefighter-Linux` (this repository): Contains the public doctrine, methodology, and documentation.
+* `Firefighter_Linux-Infrastructure` (private repository): Contains the actual infrastructure-as-code (IaC) configurations.
+
+## Technology Roadmap Overview
+
+### V1: Building the Foundation - The Installation Manifesto
+* **Phase 0: Core Infrastructure & Health:** Prometheus, Alertmanager, Apache Kafka, Vector, HashiCorp Vault, Docker.
+* **Phase 1: Central Brain & Memory:** OpenSearch, MISP, OpenCTI.
+* **Phase 2: Detection & Observation:** Wazuh, Falco, Suricata, Zeek, Arkime.
+* **Phase 3: Active Intelligence & Hunt:** IntelOwl, T-Pot, CAPE Sandbox.
+* **Phase 4: Command & Control:** TheHive, Cortex, osquery, FleetDM.
+* **Phase 5: Doctrine & Knowledge Management:** MkDocs/BookStack, MITRE ATT&CK Navigator.
+
+### V2: Automation - The Autonomous Defense Doctrine
+* Full SOAR orchestration (Shuffle), Infrastructure as Code (Ansible, Terraform, Kubernetes), and Detection-as-Code (CI/CD).
+
+### V3: Evolution - Predictive Security & AI Dominance
+* UEBA, Predictive Threat Modeling, NLP for automated intel gathering, and an AI-assisted decision support system.
 
 ---
-
-## The Vision
-
-To build a fully integrated, self-hosted, and enterprise-grade security platform that can be deployed as a standardized Linux distribution (ISO). This project provides not just the tools, but a complete operational roadmap for achieving cybersecurity dominance.
-
-This public repository contains the doctrine, methodology, roadmap, and all public-facing documentation. The actual infrastructure-as-code is maintained in a separate, private repository.
-
-## The Doctrine
-
-* **Zero Trust:** No entity, internal or external, is trusted by default. Everything is verified, authenticated, and audited.
-* **Zero Tolerance:** No anomaly or policy violation is ignored. Every event is either handled through automation or requires analyst intervention.
-* **Continuous Hunt:** We operate under the assumption of a breach. We don't wait for alarms; we continuously hunt for adversaries within our systems.
-
-## Project Roadmap
-
-The project is structured into three evolutionary versions:
-
-### **V1: Building the Foundation - The Installation Manifesto**
-*Goal: To establish the most comprehensive open-source cyber operations infrastructure with full, albeit manual, operational capability.*
-
-* **Phase 0: The Core Infrastructure:** Observability stack (Prometheus, Grafana, Loki) and secret management (Vault).
-* **Phase 1: The Central Brain:** Data Lake (OpenSearch) and CTI Platforms (MISP, OpenCTI).
-* **Phase 2: Perception & Observation:** Endpoint sensors (Wazuh, Falco), and the Network Visibility Triad (Suricata, Zeek, Arkime).
-* **Phase 3: Active Intelligence & Hunting:** IOC Enrichment (IntelOwl), Deception Network (T-Pot), and Malware Analysis (CAPE Sandbox).
-* **Phase 4: Command & Control:** Incident Management (TheHive, Cortex) and Retro-Hunting (osquery).
-* **Phase 5: Doctrine & Knowledge:** Knowledge Base (BookStack/MkDocs) and Strategic Reporting (MITRE ATT&CK Navigator).
-
-### **V2: Automating Firefighter-Linux - The Autonomous Defense Doctrine**
-*Goal: To achieve light-speed, consistent, and scalable autonomous response to all known threats, freeing human intelligence for creative and complex tasks.*
-
-* **Projects:** Full SOAR orchestration (Shuffle), Infrastructure as Code at scale (Ansible, Terraform, Kubernetes), Detection-as-Code (CI/CD for rules), and Automated Threat Hunting.
-
-### **V3: Evolving Firefighter-Linux - Predictive Security & AI Dominance**
-*Goal: To predict the unknown. To transition defense from a reactive to a predictive state by anticipating the adversary's next move.*
-
+This repository serves as the public-facing documentation and philosophy of the Firefighter_Linux project.
 * **R&D Projects:** User and Entity Behavior Analytics (UEBA), Predictive Threat Modeling with AI on graph databases, NLP for automated intelligence gathering, and an AI-assisted decision support system for analysts.
 
 ---

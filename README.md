@@ -1,3 +1,5 @@
+![Firefighter-Linux Logo](./assets/logo.png)
+
 # Firefighter_Linux: An Open-Source Proactive Cyber Defense Doctrine
 
 ## Project Vision

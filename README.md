@@ -1,47 +1,51 @@
+# firefighter-linux-osint: Bir GEO-OSINT Analiz Platformu
+
 ![Firefighter-Linux Logo](./assets/logo.png)
 
-# Firefighter_Linux: An Open-Source Proactive Cyber Defense Doctrine
+## Proje Misyonu
+Sorgulanamaz dijital kanıtlar üreten, açık ve kapalı kaynakları birleştiren, yapay zeka ile zenginleştirilmiş, küresel ölçekte etki yaratacak istihbarat raporları sunan, bağımsız ve dağıtılabilir bir **GEO-OSINT (Coğrafi Açık Kaynak İstihbaratı)** analiz platformu inşa etmek.
 
-## Project Vision
-Firefighter_Linux is a proactive, intelligence-driven, and predictive cybersecurity operations doctrine built entirely with open-source tools. It's designed to go beyond reactive defense, metaphorically not just extinguishing digital "fires" but proactively hunting for the "arsonists" and preventing fires from starting in the first place.
+## Temel Felsefe
+* **Kanıt Odaklı:** Her analiz, doğrulanabilir ve bütünlüğü korunmuş (hash, metadata) dijital kanıtlara dayanır.
+* **Açık Kaynak Çekirdek:** Platformun temeli, şeffaflık ve topluluk katılımı için tamamen açık kaynaklı teknolojiler üzerine kurulmuştur.
+* **Modüler Mimari:** Sistem, tek bir analistin iş istasyonundan, sürekli veri toplayan, analiz eden ve raporlayan dağıtık bir mimariye dönüşebilecek şekilde tasarlanmıştır.
+* **Tekrarlanabilirlik:** `install_v1.0.sh` gibi betikler ve Docker gibi araçlar sayesinde tüm sistemin kurulumu ve dağıtımı tekrarlanabilir ve otomatiktir.
 
-## Core Doctrine
-The entire operation is built on three core principles:
-* **Zero Trust:** No entity or traffic, internal or external, is trusted by default. Everything must be authenticated, authorized, and inspected.
-* **Zero Tolerance:** No detected anomaly or policy violation is ignored. Every event requires either automated intervention or direct analyst response based on its severity.
-* **Continuous Hunt:** We operate under the assumption of compromise. Instead of passively waiting for alarms, we are perpetually hunting for adversaries within our systems.
+## Depo Yapısı
+Proje, görev ayrımı prensibiyle iki ana depoda yönetilmektedir:
+* `Firefighter-Linux` (Bu Depo - Public): Projenin felsefesi, genel dokümantasyonu, kurulum betikleri (`install_v1.0.sh`) gibi halka açık tüm belgeleri içerir.
+* `firefighter-linux-osint` (Özel Depo - Private): API anahtarları, `docker-compose.yml` dosyaları, hassas yapılandırmalar, toplanan veriler ve analiz sonuçları gibi özel ve hassas bilgileri barındırır.
 
-## Guiding Philosophy: GitOps as the Single Source of Truth
-Every piece of configuration, setup, documentation, and code in the Firefighter_Linux infrastructure has a single official version: the one stored in a central Git repository. This principle brings auditability, versioning, and repeatability to the entire infrastructure.
-* `Firefighter-Linux` (this repository): Contains the public doctrine, methodology, and documentation.
-* `Firefighter_Linux-Infrastructure` (private repository): Contains the actual infrastructure-as-code (IaC) configurations.
+## Teknolojik Yol Haritası
 
-## Technology Roadmap Overview
+Bu yol haritası, platformun adım adım nasıl geliştirileceğini tanımlar.
 
-### V1: Building the Foundation - The Installation Manifesto
-* **Phase 0: Core Infrastructure & Health:** Prometheus, Alertmanager, Apache Kafka, Vector, HashiCorp Vault, Docker.
-* **Phase 1: Central Brain & Memory:** OpenSearch, MISP, OpenCTI.
-* **Phase 2: Detection & Observation:** Wazuh, Falco, Suricata, Zeek, Arkime.
-* **Phase 3: Active Intelligence & Hunt:** IntelOwl, T-Pot, CAPE Sandbox.
-* **Phase 4: Command & Control:** TheHive, Cortex, osquery, FleetDM.
-* **Phase 5: Doctrine & Knowledge Management:** MkDocs/BookStack, MITRE ATT&CK Navigator.
+### **v1.0: Analist İstasyonu (Mevcut Sürüm)**
+* **Hedef:** Analiste, veriyi görselleştirip derinlemesine analiz edebileceği profesyonel araçlar sunan tam teşekküllü bir iş istasyonu.
+* **Teknolojiler:** Ubuntu 22.04 LTS, XFCE4, Docker, **QGIS**, **Google Earth Pro**, **Maltego**, **SpiderFoot**, GDAL, ExifTool.
 
-### V2: Automation - The Autonomous Defense Doctrine
-* Full SOAR orchestration (Shuffle), Infrastructure as Code (Ansible, Terraform, Kubernetes), and Detection-as-Code (CI/CD).
+### **v2.0: Otomatik Veri Toplayıcı (Collector)**
+* **Hedef:** Tekrarlayan veri toplama görevlerini (uydu görüntüsü indirme, harita verisi güncelleme vb.) 7/24 otomatikleştirmek.
+* **Teknolojiler:** Python (`requests`, `sentinelhub-py`), Node-RED, `cron`.
 
-### V3: Evolution - Predictive Security & AI Dominance
-* UEBA, Predictive Threat Modeling, NLP for automated intel gathering, and an AI-assisted decision support system.
+### **v3.0: Merkezi Platform (Platform)**
+* **Hedef:** Toplanan tüm coğrafi ve ilişkisel veriyi, sorgulanabilir, ölçeklenebilir ve yüksek performanslı merkezi bir veritabanına taşımak.
+* **Teknolojiler:** PostgreSQL + **PostGIS**, `pg_tileserv`, FastAPI.
+
+### **v4.0: Yapay Zeka Motoru (AI)**
+* **Hedef:** Platforma "görme" ve "anlama" yeteneği kazandırarak insan gözünün kaçırabileceği desenleri ve nesneleri (gemi, uçak, bina vb.) otomatik olarak tespit etmek.
+* **Teknolojiler:** PyTorch, TensorFlow, **YOLOv8**, Label Studio.
+
+### **v5.0: Küresel Raporlama Motoru (Global)**
+* **Hedef:** Üretilen istihbaratı, sorgulanamaz, dinamik ve interaktif (3D haritalar, zaman atlamalı videolar) profesyonel raporlara dönüştürmek.
+* **Teknolojiler:** Quarto, **CesiumJS**, Streamlit, `ffmpeg`.
 
 ---
-This repository serves as the public-facing documentation and philosophy of the Firefighter_Linux project.
-* **R&D Projects:** User and Entity Behavior Analytics (UEBA), Predictive Threat Modeling with AI on graph databases, NLP for automated intelligence gathering, and an AI-assisted decision support system for analysts.
 
----
+## Katkıda Bulunma
 
-## Contributing
+Bu bir açık kaynak çabasıdır. Projenin felsefesine, dokümantasyonuna ve kurulum betiklerine katkıda bulunmak isterseniz "Pull Request" açmaktan çekinmeyin.
 
-This is an open-source effort. We welcome contributions to the doctrine, documentation, and overall philosophy. Please refer to `CONTRIBUTING.md` (to be created) for more details.
+## Lisans
 
-## License
-
-This project is licensed under the MIT License.
+Bu proje MIT Lisansı altında lisanslanmıştır.

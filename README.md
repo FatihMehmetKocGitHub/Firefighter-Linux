@@ -1,4 +1,4 @@
-# firefighter-linux-osint: Bir GEO-OSINT Analiz Platformu
+# Firefighter-Linux: Bir GEO-OSINT Analiz Platformu
 
 ![Firefighter-Linux Logo](./assets/logo.png)
 

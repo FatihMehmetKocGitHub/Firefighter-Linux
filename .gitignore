@@ -1,35 +1,46 @@
-# Python artifacts
+# İşletim Sistemi tarafından üretilen dosyalar
+.DS_Store
+Thumbs.db
+._*
+.Spotlight-V100
+.Trashes
+
+# Editör ve IDE yapılandırma dosyaları
+.vscode/
+.idea/
+*.swp
+*~
+*.sublime-project
+*.sublime-workspace
+
+# Python önbellek ve sanal ortam dosyaları
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
-*.egg-info/
-
-# Virtual Environments
-.env
+.Python
 env/
 venv/
-*.venv
+pip-log.txt
+pip-delete-this-directory.txt
+.eggs/
+*.egg-info/
+*.egg
 
-# OS & Editor specific
-.DS_Store
-Thumbs.db
-.vscode/
-.idea/
-
-# Sensitive files - NEVER commit these!
+# Yanlışlıkla eklenebilecek hassas dosyalar
+.env
 *.env
-credentials.json
-api_keys.py
-config.ini
+.env.*
+secrets.yml
 
-# Data files - Ignore data directory but keep the structure
-/data/*
-!/data/.gitkeep
-
-# Build & Release artifacts
-/build/
-/dist/
+# İndirilen paketler ve derleme çıktıları
+*.deb
 *.iso
+*.zip
+*.tar.gz
+*.dmg
+
+# Log dosyaları
 *.log
+logs/
 

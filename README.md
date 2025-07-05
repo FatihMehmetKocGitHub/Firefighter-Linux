@@ -1,6 +1,6 @@
 Firefighter Linux V1
 
-![Firefighter-Linux Logo](./assets/logo.png)
+![Firefighter-Linux Logo](./assets/trlogo.png)
 
 Yangın Gözlem ve Coğrafi İstihbarat Sistemi
 Genel Tanım

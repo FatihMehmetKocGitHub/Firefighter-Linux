@@ -1,51 +1,154 @@
-# Firefighter-Linux: Bir GEO-OSINT Analiz Platformu
+Firefighter Linux V1
 
 ![Firefighter-Linux Logo](./assets/logo.png)
 
-## Proje Misyonu
-Sorgulanamaz dijital kanıtlar üreten, açık ve kapalı kaynakları birleştiren, yapay zeka ile zenginleştirilmiş, küresel ölçekte etki yaratacak istihbarat raporları sunan, bağımsız ve dağıtılabilir bir **GEO-OSINT (Coğrafi Açık Kaynak İstihbaratı)** analiz platformu inşa etmek.
+Yangın Gözlem ve Coğrafi İstihbarat Sistemi
+Genel Tanım
 
-## Temel Felsefe
-* **Kanıt Odaklı:** Her analiz, doğrulanabilir ve bütünlüğü korunmuş (hash, metadata) dijital kanıtlara dayanır.
-* **Açık Kaynak Çekirdek:** Platformun temeli, şeffaflık ve topluluk katılımı için tamamen açık kaynaklı teknolojiler üzerine kurulmuştur.
-* **Modüler Mimari:** Sistem, tek bir analistin iş istasyonundan, sürekli veri toplayan, analiz eden ve raporlayan dağıtık bir mimariye dönüşebilecek şekilde tasarlanmıştır.
-* **Tekrarlanabilirlik:** `install_v1.0.sh` gibi betikler ve Docker gibi araçlar sayesinde tüm sistemin kurulumu ve dağıtımı tekrarlanabilir ve otomatiktir.
+Firefighter Linux V1, orman yangınlarına müdahale eden ekipler ve kriz yönetim birimleri için özel olarak geliştirilmiş, hazır kurulu bir coğrafi istihbarat analiz sistemidir. Uydu görüntüleri, açık kaynak veriler ve manuel analiz yöntemleriyle sahadaki durumu hızlıca anlamayı ve belgelemeyi sağlar.
+Sistem Mimarisi
 
-## Depo Yapısı
-Proje, görev ayrımı prensibiyle iki ana depoda yönetilmektedir:
-* `Firefighter-Linux` (Bu Depo - Public): Projenin felsefesi, genel dokümantasyonu, kurulum betikleri (`install_v1.0.sh`) gibi halka açık tüm belgeleri içerir.
-* `firefighter-linux-osint` (Özel Depo - Private): API anahtarları, `docker-compose.yml` dosyaları, hassas yapılandırmalar, toplanan veriler ve analiz sonuçları gibi özel ve hassas bilgileri barındırır.
+    Dağıtım Formatı: .ova (VirtualBox uyumlu sanal makine)
 
-## Teknolojik Yol Haritası
+    Kurulum Yapısı: Native (Docker kullanılmaz; tüm yazılımlar kurulu gelir)
 
-Bu yol haritası, platformun adım adım nasıl geliştirileceğini tanımlar.
+    Temel Sistem: Xubuntu 22.04 LTS (XFCE masaüstü)
 
-### **v1.0: Analist İstasyonu (Mevcut Sürüm)**
-* **Hedef:** Analiste, veriyi görselleştirip derinlemesine analiz edebileceği profesyonel araçlar sunan tam teşekküllü bir iş istasyonu.
-* **Teknolojiler:** Ubuntu 22.04 LTS, XFCE4, Docker, **QGIS**, **Google Earth Pro**, **Maltego**, **SpiderFoot**, GDAL, ExifTool.
+Kullanıcı Profili
 
-### **v2.0: Otomatik Veri Toplayıcı (Collector)**
-* **Hedef:** Tekrarlayan veri toplama görevlerini (uydu görüntüsü indirme, harita verisi güncelleme vb.) 7/24 otomatikleştirmek.
-* **Teknolojiler:** Python (`requests`, `sentinelhub-py`), Node-RED, `cron`.
+    Kriz masası ekipleri
 
-### **v3.0: Merkezi Platform (Platform)**
-* **Hedef:** Toplanan tüm coğrafi ve ilişkisel veriyi, sorgulanabilir, ölçeklenebilir ve yüksek performanslı merkezi bir veritabanına taşımak.
-* **Teknolojiler:** PostgreSQL + **PostGIS**, `pg_tileserv`, FastAPI.
+    Coğrafi Bilgi Sistemleri (CBS) uzmanları
 
-### **v4.0: Yapay Zeka Motoru (AI)**
-* **Hedef:** Platforma "görme" ve "anlama" yeteneği kazandırarak insan gözünün kaçırabileceği desenleri ve nesneleri (gemi, uçak, bina vb.) otomatik olarak tespit etmek.
-* **Teknolojiler:** PyTorch, TensorFlow, **YOLOv8**, Label Studio.
+    OSINT araştırmacıları
 
-### **v5.0: Küresel Raporlama Motoru (Global)**
-* **Hedef:** Üretilen istihbaratı, sorgulanamaz, dinamik ve interaktif (3D haritalar, zaman atlamalı videolar) profesyonel raporlara dönüştürmek.
-* **Teknolojiler:** Quarto, **CesiumJS**, Streamlit, `ffmpeg`.
+    Akademisyenler ve gönüllü analistler
 
----
+Kurulu Uygulamalar
+Uydu ve Harita Analizi
 
-## Katkıda Bulunma
+    QGIS: Raster, vektör ve coğrafi veri analizi
 
-Bu bir açık kaynak çabasıdır. Projenin felsefesine, dokümantasyonuna ve kurulum betiklerine katkıda bulunmak isterseniz "Pull Request" açmaktan çekinmeyin.
+    ESA SNAP: Sentinel uydu görüntülerinin işlenmesi
 
-## Lisans
+    Google Earth Pro: Zaman serisi karşılaştırma ve yüksek çözünürlüklü uydu görüntüleme
 
-Bu proje MIT Lisansı altında lisanslanmıştır.
+    MapTiler Desktop (Opsiyonel): Offline harita üretimi
+
+    GDAL: Veri formatı dönüştürme ve raster işlemleri
+
+Web Tabanlı Uydu Kaynakları
+
+    NASA FIRMS: Sıcak nokta verisi
+
+    Zoom Earth: Gerçek zamanlı görsel izleme
+
+    Sentinel EO Browser: Uydu zaman serisi analiz
+
+    OpenStreetMap: Harita altlığı
+
+    NASA Worldview ve Copernicus Browser: MODIS, Sentinel, Landsat görüntüleri
+
+Masaüstü üzerinden bu kaynaklara doğrudan erişim için .desktop kısayolları sağlanır.
+OSINT ve Analiz Araçları
+
+    Obsidian: Olay günlüğü ve bilgi kaydı (Markdown tabanlı)
+
+    Flameshot: Ekran görüntüsü alma ve işaretleme
+
+    LibreOffice: PDF ve belge üretimi
+
+    Geany / VSCode: Not ve kod düzenleme
+
+    SpiderFoot: Otomatik OSINT tarama
+
+    Maltego CE: Varlık ilişkisi haritalama
+
+    snscrape: Sosyal medyada yangın sinyallerini tarama
+
+    ExifTool: Görsel metadata analizi
+
+    Whois / GeoIP: Alan adı ve IP konum çözümlemesi
+
+Standart Klasör Yapısı
+
+    Belgeler/Raporlar: PDF ve Markdown raporlar
+
+    Belgeler/Kanitlar: Notlar, ekran görüntüleri ve belgeler
+
+    Belgeler/Ekran_Goruntuleri: Flameshot ile alınan işaretli görseller
+
+    Belgeler/Veriler: GeoTIFF, KML ve Sentinel .SAFE uydu verileri
+
+Kullanım Senaryosu
+
+    İlk Tespit: Sosyal medya taraması (snscrape), kanıt kaydı (Obsidian)
+
+    Görsel Analiz: FIRMS ve Zoom Earth kullanarak sıcak nokta ve duman takibi
+
+    Mekansal Analiz: QGIS ile yangın sınırlarını çizme, tehlike altındaki yerleşimleri belirleme
+
+    Raporlama: Flameshot ile ekran görüntüsü alma, Obsidian’a ekleme, PDF rapor oluşturma
+
+Firefighter Linux V1 Çıktıları
+
+    Kurulu .ova sanal makinesi
+
+    Günlük yangın raporu şablonları
+
+    Web kısayolları
+
+    Test verileri (KML, GeoTIFF, JSON)
+
+    SHA512 doğrulama desteği
+
+Felsefe ve Yaklaşım
+
+Firefighter Linux V1, manuel olarak kullanılmak üzere tasarlanmış bir analiz platformudur. Uydu görüntüsü, sosyal medya sinyali ve açık kaynak bilgilerden elde edilen veriler, sahada karar vericilere kanıta dayalı ve hızlı istihbarat sağlamak amacıyla işlenir.
+
+V1, bir dijital savaş odasının temelini oluşturur: Uydu verisini, sosyal medya OSINT araçlarını ve yerel analiz uygulamalarını tek bir çatı altında sunar.
+
+
+Firefighter Linux V2
+Otomatik Uydu Verisi Toplama ve Yangın Riski Analizi Sistemi
+
+Firefighter Linux V2, yangın riskinin önceden tespiti için geliştirilen yarı-otomatik veri toplama ve analiz motorudur. Manuel V1’in devamı niteliğinde olan bu aşama, uydu verilerini ve meteorolojik kaynakları düzenli aralıklarla indirip işleyen Python betikleriyle çalışır. Amaç, yangın çıkmadan önce riskli bölgeleri tespit edebilecek bir erken uyarı sistemi kurmaktır.
+V2'nin Ana Hedefleri
+
+    Uydu Verilerinin Otomatik Toplanması:
+
+        Sentinel-2 (bitki örtüsü sağlığı – NDVI)
+
+        Landsat 8/9 (termal bant – yüzey sıcaklığı)
+
+        Open-Meteo API (sıcaklık, rüzgar, nem)
+
+        Python kütüphaneleri: sentinelsat, requests, datetime, pandas
+
+    Veri İşleme ve İndeks Üretimi:
+
+        Rasterio + NumPy ile:
+
+            NDVI (kuruluk haritası)
+
+            LST (yüzey sıcaklığı haritası)
+
+            Normalize edilmiş risk skorları
+
+    Yangın Riski Modellemesi:
+
+        Weighted Overlay modeli (her katmana ağırlık verilerek analiz)
+
+        Python ile otomatik raster analiz
+
+        CSV formatında çıktı üretimi ve görsel risk haritası
+
+    Raporlama ve Otomasyon:
+
+        Otomatik olarak risk haritası PNG/PDF oluşturma
+
+        E-posta bildirimi ya da manuel kontrol paneline kayıt
+
+        Cronjob ile her gün veya her hafta otomatik çalıştırma
+
+        Sonuçların risk_map_output/ klasörüne kaydedilmesi

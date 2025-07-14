@@ -1,154 +1,183 @@
-Firefighter Linux V1
+# Firefighter Linux V1.1
 
 ![Firefighter-Linux Logo](./assets/trlogo.jpeg)
 
-Yangın Gözlem ve Coğrafi İstihbarat Sistemi
-Genel Tanım
+## Yangın Gözlem ve Coğrafi Bilgi Sistemi
 
-Firefighter Linux V1, orman yangınlarına müdahale eden ekipler ve kriz yönetim birimleri için özel olarak geliştirilmiş, hazır kurulu bir coğrafi istihbarat analiz sistemidir. Uydu görüntüleri, açık kaynak veriler ve manuel analiz yöntemleriyle sahadaki durumu hızlıca anlamayı ve belgelemeyi sağlar.
-Sistem Mimarisi
+---
 
-    Dağıtım Formatı: .ova (VirtualBox uyumlu sanal makine)
+## 🔹 Genel Tanım
 
-    Kurulum Yapısı: Native (Docker kullanılmaz; tüm yazılımlar kurulu gelir)
+Firefighter Linux, orman yangınlarına müdahale eden ekipler ve kriz yönetim birimleri için geliştirilmiş, hazır kurulu bir **coğrafi bilgi analiz sistemidir**.  
+Uydu görüntüleri, açık kaynak veriler ve manuel analiz yöntemleriyle sahadaki durumu hızlıca anlamayı ve belgelemeyi amaçlar.
 
-    Temel Sistem: Xubuntu 22.04 LTS (XFCE masaüstü)
+---
 
-Kullanıcı Profili
+## 🔹 Sistem Mimarisi
 
-    Kriz masası ekipleri
+- **Dağıtım Formatı:** `.ova` (VirtualBox uyumlu sanal makine)  
+- **Kurulum Yapısı:** Native – Docker kullanılmaz, tüm yazılımlar kurulu gelir  
+- **Temel Sistem:** Xubuntu 22.04 LTS (XFCE masaüstü)
 
-    Coğrafi Bilgi Sistemleri (CBS) uzmanları
+---
 
-    OSINT araştırmacıları
+## 🔹 Kullanıcı Profili
 
-    Akademisyenler ve gönüllü analistler
+- Kriz masası ve afet yönetim ekipleri  
+- Coğrafi Bilgi Sistemleri (CBS) uzmanları  
+- Açık kaynak veri analistleri  
+- Akademisyenler ve gönüllü araştırmacılar
 
-Kurulu Uygulamalar
-Uydu ve Harita Analizi
+---
 
-    QGIS: Raster, vektör ve coğrafi veri analizi
+## 🔹 Kurulu Uygulamalar
 
-    ESA SNAP: Sentinel uydu görüntülerinin işlenmesi
+### Uydu ve Harita Analizi
+- **QGIS** – Raster, vektör ve konumsal veri işleme  
+- **ESA SNAP** – Sentinel verisi analizi  
+- **Google Earth Pro** – Uydu karşılaştırması ve görselleştirme  
+- **GDAL** – Veri dönüşümü (GeoTIFF, KML vs.)  
+- **MapTiler Desktop (opsiyonel)** – Offline harita üretimi  
 
-    Google Earth Pro: Zaman serisi karşılaştırma ve yüksek çözünürlüklü uydu görüntüleme
+### Web Tabanlı Uydu Kaynakları
+- NASA FIRMS  
+- Sentinel EO Browser  
+- Zoom Earth  
+- Copernicus Browser  
+- OpenStreetMap  
+- NASA Worldview  
 
-    MapTiler Desktop (Opsiyonel): Offline harita üretimi
+> Tüm kaynaklara masaüstü üzerinden `.desktop` kısayollarıyla erişim sağlanır.
 
-    GDAL: Veri formatı dönüştürme ve raster işlemleri
+### OSINT ve Görsel Analiz Araçları
+- Obsidian – Bilgi günlüğü  
+- Flameshot – Görsel işaretleme  
+- LibreOffice – PDF üretimi  
+- Geany / VSCode – Kod ve not düzenleme  
+- SpiderFoot – Açık kaynak analiz  
+- Maltego CE – Varlık görselleştirme  
+- snscrape – Sosyal medya tarayıcı  
+- ExifTool – Görsel metadata çözümleme  
+- Whois / GeoIP – Alan adı/IP çözümleme
 
-Web Tabanlı Uydu Kaynakları
+---
 
-    NASA FIRMS: Sıcak nokta verisi
+## 🔹 Klasör Yapısı
 
-    Zoom Earth: Gerçek zamanlı görsel izleme
+Belgeler/
+├── Raporlar/
+├── Kanitlar/
+├── Ekran_Goruntuleri/
+├── Veriler/ (GeoTIFF, KML, Sentinel .SAFE)
 
-    Sentinel EO Browser: Uydu zaman serisi analiz
+scripts/
+firms_output/
+kml_output/
+landsat_output/
 
-    OpenStreetMap: Harita altlığı
 
-    NASA Worldview ve Copernicus Browser: MODIS, Sentinel, Landsat görüntüleri
+---
 
-Masaüstü üzerinden bu kaynaklara doğrudan erişim için .desktop kısayolları sağlanır.
-OSINT ve Analiz Araçları
+## 🔹 Kullanım Senaryosu
 
-    Obsidian: Olay günlüğü ve bilgi kaydı (Markdown tabanlı)
+- **İlk Tespit:** Sosyal medya üzerinden yangın sinyali tarama (`snscrape`)  
+- **Görsel Analiz:** FIRMS ve Zoom Earth ile duman/sıcak nokta takibi  
+- **Mekansal Analiz:** QGIS ile yangın alanı belirleme  
+- **Raporlama:** Flameshot + Obsidian + LibreOffice ile PDF üretimi
 
-    Flameshot: Ekran görüntüsü alma ve işaretleme
+---
 
-    LibreOffice: PDF ve belge üretimi
+## 🔹 V1.1 – Yeni Özellikler (Temmuz 2025)
 
-    Geany / VSCode: Not ve kod düzenleme
+Firefighter Linux V1.1, ilk sürümün üzerine geliştirilen ve veri işleme/görselleştirme gücünü artıran kararlı bir güncellemedir.
 
-    SpiderFoot: Otomatik OSINT tarama
+### 1. FIRMS API Entegrasyonu (Otomatik Veri Çekimi)
+- NASA FIRMS API üzerinden Türkiye'deki aktif yangın verileri alınır  
+- Veriler `.csv` formatında il bazında kaydedilir  
 
-    Maltego CE: Varlık ilişkisi haritalama
+### 2. Çoklu Bölge Destekli Sorgulama
+- 81 ili kapsayan `LOCATIONS` sözlüğü ile otomatik analiz  
+- Son 10 güne kadar olan veriler alınabilir
 
-    snscrape: Sosyal medyada yangın sinyallerini tarama
+### 3. KML Çıktı Üretimi
+- Yangın konumları `.kml` dosyasına aktarılır  
+- Google Earth Pro üzerinde doğrudan açılabilir
 
-    ExifTool: Görsel metadata analizi
+### 4. Landsat Tabanlı Risk Haritası
+- NDVI ve LST değerlerinden **yangın riski haritası** üretilir  
+- `super overlay` şeklinde Google Earth ile görselleştirilir
 
-    Whois / GeoIP: Alan adı ve IP konum çözümlemesi
+### 5. Güncellenmiş Dosya ve Script Yapısı
+- Scriptler sadeleştirildi, klasör yapısı netleştirildi  
+- Manuel adım adım çalıştırılabilir
 
-Standart Klasör Yapısı
+### 6. İyileştirilmiş Masaüstü Ortamı
+- Masaüstü kısayolları ile uydu kaynaklarına anında erişim  
+- Kullanıcı arayüzü sadeleştirildi
 
-    Belgeler/Raporlar: PDF ve Markdown raporlar
+---
 
-    Belgeler/Kanitlar: Notlar, ekran görüntüleri ve belgeler
+## 🔹 Veri Güncelliği Hakkında
 
-    Belgeler/Ekran_Goruntuleri: Flameshot ile alınan işaretli görseller
+Bu sistemde kullanılan veriler, NASA, Copernicus ve Landsat gibi kaynakların sunduğu açık uydu sistemlerinden çekilmektedir.  
+Veriler genellikle **yakın geçmişe (son 3–24 saat)** aittir ve **gerçek zamanlı değildir.**  
+Bu nedenle sistem, anlık müdahale değil; **durumsal analiz, risk değerlendirmesi ve olay sonrası raporlama** amacıyla kullanılmalıdır.
 
-    Belgeler/Veriler: GeoTIFF, KML ve Sentinel .SAFE uydu verileri
+---
 
-Kullanım Senaryosu
+## 🔹 V1.1 Çıktıları
 
-    İlk Tespit: Sosyal medya taraması (snscrape), kanıt kaydı (Obsidian)
+- `.ova` sanal makine dosyası  
+- İl bazlı `.csv` ve `.kml` çıktıları  
+- NDVI ve LST tabanlı `.tif` dosyaları  
+- Python betikleri (`scripts/`)  
+- SHA512 imzalı dosya doğrulama desteği  
 
-    Görsel Analiz: FIRMS ve Zoom Earth kullanarak sıcak nokta ve duman takibi
+---
+🔹 Büyük Veri Dosyaları (GeoTIFF, KML, CSV vb.)
 
-    Mekansal Analiz: QGIS ile yangın sınırlarını çizme, tehlike altındaki yerleşimleri belirleme
+Bu proje kapsamında .tif, .kml, .csv, .json gibi büyük dosyalar versiyon kontrolüne dahil edilmemiştir. Bu dosyalar hem depolama hem de paylaşım kolaylığı açısından GitHub yerine Google Drive üzerinden paylaşılmaktadır.
+📂 İndirilebilir Veri Arşivi
 
-    Raporlama: Flameshot ile ekran görüntüsü alma, Obsidian’a ekleme, PDF rapor oluşturma
+Tüm örnek veri dosyalarına aşağıdaki klasörden ulaşabilirsiniz:
 
-Firefighter Linux V1 Çıktıları
+🔗 Google Drive Klasörü – Firefighter Linux Verileri
+((https://drive.google.com/drive/folders/1pamhIkdkVh2AI4iR49OgmPfqqWUmeadp))
 
-    Kurulu .ova sanal makinesi
+    📌 Bu klasörde:
 
-    Günlük yangın raporu şablonları
+        FIRMS yangın verisi .csv dosyaları
 
-    Web kısayolları
+        .kml çıktı dosyaları
 
-    Test verileri (KML, GeoTIFF, JSON)
+        Landsat tabanlı NDVI / LST .tif dosyaları
 
-    SHA512 doğrulama desteği
+        JSON/GeoJSON örnek analiz çıktıları
+        yer alır.
 
-Felsefe ve Yaklaşım
+⚠️ Notlar
 
-Firefighter Linux V1, manuel olarak kullanılmak üzere tasarlanmış bir analiz platformudur. Uydu görüntüsü, sosyal medya sinyali ve açık kaynak bilgilerden elde edilen veriler, sahada karar vericilere kanıta dayalı ve hızlı istihbarat sağlamak amacıyla işlenir.
+    Bu veriler test amaçlıdır, sürekli güncellenmeyebilir.
 
-V1, bir dijital savaş odasının temelini oluşturur: Uydu verisini, sosyal medya OSINT araçlarını ve yerel analiz uygulamalarını tek bir çatı altında sunar.
+    Sistemi çalıştırmadan önce klasörlere bu verileri manuel olarak indirip yerleştirmeniz gerekebilir (örnek: csv/, kml_output/, risk_map_output/).
 
+    .gitignore ile bu klasörler GitHub'a dahil edilmez.
+## 🔹 Felsefe ve Yaklaşım
 
-Firefighter Linux V2
-Otomatik Uydu Verisi Toplama ve Yangın Riski Analizi Sistemi
+Firefighter Linux, manuel uydu destekli analiz sistemidir.  
+Amaç; kriz anlarında açık veriye dayalı, yerli ve sade bir çözüm sunarak hızlı karar alımına destek olmaktır.  
+Veriler görsel ve mekansal analizle işlenir, belgelenir ve paylaşılır.
 
-Firefighter Linux V2, yangın riskinin önceden tespiti için geliştirilen yarı-otomatik veri toplama ve analiz motorudur. Manuel V1’in devamı niteliğinde olan bu aşama, uydu verilerini ve meteorolojik kaynakları düzenli aralıklarla indirip işleyen Python betikleriyle çalışır. Amaç, yangın çıkmadan önce riskli bölgeleri tespit edebilecek bir erken uyarı sistemi kurmaktır.
-V2'nin Ana Hedefleri
+> V1, dijital bir kriz analiz masasının temelini oluşturur.  
+> V2: otomasyon  
+> V3: yapay zeka destekli analiz hedeflenmektedir.
 
-    Uydu Verilerinin Otomatik Toplanması:
+---
 
-        Sentinel-2 (bitki örtüsü sağlığı – NDVI)
+## 🔹 Geliştirici
 
-        Landsat 8/9 (termal bant – yüzey sıcaklığı)
+**Fatih Mehmet Koç**  
+İtfaiyeci / Yazılım Geliştirici  
+LinkedIn: [linkedin.com/in/fatihmehmetkoc](https://www.linkedin.com/in/fatihmehmetkoc)
 
-        Open-Meteo API (sıcaklık, rüzgar, nem)
-
-        Python kütüphaneleri: sentinelsat, requests, datetime, pandas
-
-    Veri İşleme ve İndeks Üretimi:
-
-        Rasterio + NumPy ile:
-
-            NDVI (kuruluk haritası)
-
-            LST (yüzey sıcaklığı haritası)
-
-            Normalize edilmiş risk skorları
-
-    Yangın Riski Modellemesi:
-
-        Weighted Overlay modeli (her katmana ağırlık verilerek analiz)
-
-        Python ile otomatik raster analiz
-
-        CSV formatında çıktı üretimi ve görsel risk haritası
-
-    Raporlama ve Otomasyon:
-
-        Otomatik olarak risk haritası PNG/PDF oluşturma
-
-        E-posta bildirimi ya da manuel kontrol paneline kayıt
-
-        Cronjob ile her gün veya her hafta otomatik çalıştırma
-
-        Sonuçların risk_map_output/ klasörüne kaydedilmesi
+---
